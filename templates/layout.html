@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Deep Learning Prototype</title>
+  </head>
+
+  <body>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ url_for('index')   }}">AI Prototype</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{ url_for('digit')   }}">Digit Recognition</a></li>
+            <li><a href="{{ url_for('image')   }}">Image Processing</a></li>
+            <li><a href="{{ url_for('text')   }}">Text Analysis</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      {% for message in get_flashed_messages() %}
+      <div class="alert info fade in">
+        <button class="close" data-dismiss="alert">×</button>
+        {{ message }}
+      </div>
+      {% endfor %}
+      {% block body %}{% endblock %}
+      </div>
+    </div>
+
+
+  </body>
+</html>
